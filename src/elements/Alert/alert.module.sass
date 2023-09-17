@@ -1,37 +1,37 @@
 @import "../../variables"
 
 .alert
-    width: 450px
-    bottom: 10px
+    width: $alert-width
+    bottom: $alert-bottom
     position: fixed
     left: 50%
     transform: translateX(-50%)
 
-    border-radius: $borderRadius
-    padding: $padding-16
+    border-radius: $alert-border-radius
+    padding: $alert-padding
     display: flex
     justify-content: space-between
     align-items: center
-    gap: $itemGap-16
+    gap: $alert-gap
 
-    background-color: $color-primary
-    color: $color-white
+    background-color: $alert-bg
+    color: $alert-color
 
     &__icon
-        font-size: 24px
+        font-size: $alert-icon-size
         user-select: none
         span
             display: flex
             justify-content: center
             align-items: center
         &__info
-            color: $color-info
+            color:$alert-info-color
 
         &__error
-            color: $color-error
+            color: $alert-error-color
 
         &__success
-            color: $color-success
+            color: $alert-success-color
 
     &__text
         display: block

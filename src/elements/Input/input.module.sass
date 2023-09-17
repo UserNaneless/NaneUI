@@ -2,29 +2,29 @@
 
 .input
     font-size: $fontSize-16
-    padding: $padding-8 $padding-16
-    border-radius: $borderRadius
-    border: 1px solid $color-secondary
+    padding: $input-padding
+    border-radius: $input-border-radius
+    border: $input-border
     height: 32px
     &_button
         height: 100%
         display: flex
         justify-content: center
         align-items: center
-        padding-inline: $padding-16
-        color: $color-secondary
-        transition: all .3s
+        padding-inline: $input-button-padding
+        color: $input-button-color
+        transition: $input-button-transition
         &:hover
             cursor: pointer
         &:active
-            background-color: $color-primary
-            color: $color-white
+            background-color: $input-button-active-bg
+            color: $input-button-active-color
     &:focus-visible
-        box-shadow: 0 0 0 1.5px $color-primary
+        box-shadow: $active
 
 .input_wrapper
     height: 32px
-    border: 1px solid $color-secondary
+    border: $input-wrapper-border
     border-radius: $borderRadius
     display: flex
     justify-content: space-between
@@ -37,4 +37,4 @@
         &:focus-visible
             box-shadow: none
     &:focus-within
-        box-shadow: 0 0 0 1px $color-primary
+        box-shadow: $input-wrapper-focus-shadow

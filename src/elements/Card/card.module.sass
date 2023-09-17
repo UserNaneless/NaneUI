@@ -1,26 +1,26 @@
 @import "../../variables"
     
 .card
-    box-shadow: $shadow
+    box-shadow: $card-shadow
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
-    border-radius: $borderRadius
+    border-radius: $card-border-radius
 
     margin-inline: auto
 
-    width: 300px
+    width: $card-width
 
     &_image
-        border-radius: $borderRadius $borderRadius 0 0
-        background-color: $color-primary
+        border-radius: $card-image-border-radius
+        background-color: $card-image-bg
         width: 100%
-        min-height: 200px
+        min-height: $card-image-min-height
 
     &_body
-        border-radius: 0 0 $borderRadius $borderRadius
-        padding: $padding-16
+        border-radius: $card-body-border-radius
+        padding: $card-body-padding
         display: flex
         flex-direction: column
-        gap: $itemGap-16
+        gap: $card-body-gap

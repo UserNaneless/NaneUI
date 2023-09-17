@@ -1,35 +1,35 @@
 @import "../../variables"
 
 .accordion
-    border: 1px solid $color-primary
-    border-radius: $borderRadius
+    border: $accordion-border
+    border-radius: $accordion-border-radius
 
     &_item
         max-width: 100%
-        border-bottom: 1px solid $color-primary
+        border-bottom: $accordion-item-border-bottom
 
         &:last-child
             border: none
 
 .accordion_header
-    padding: $padding-16
+    padding: $accordion-header-padding
     display: flex
     justify-content: space-between
     align-items: center
 
-    color: $color-primary
-    transition: background-color .3s
+    color: $accordion-header-color
+    transition: $accordion-header-transition
     &__open
-        background-color: $color-primary
-        color: $color-white
+        background-color: $accordion-header-open-bg
+        color: $accordion-header-open-color
 
         .accordion_chevron
-            transform: rotateZ(180deg)
+            transform: $accordion-chevron-transform
 
     &:hover
         cursor: pointer
-        background-color: $color-primary
-        color: $color-white
+        background-color: $accordion-header-hover-bg
+        color: $accordion-header-hover-color
 
     span
         display: flex
@@ -37,8 +37,8 @@
         align-items: center
 
 .accordion_chevron
-    transition: all .3s
+    transition: $accordion-chevron-transition
 
 .accordion_content
-    border-top: 1px solid $color-primary
-    padding: $padding-16
+    border-top: $accordion-content-border-top
+    padding: $accordion-content-padding

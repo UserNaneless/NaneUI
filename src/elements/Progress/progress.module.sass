@@ -1,39 +1,39 @@
 @import "../../variables"
 
 .progress_wrapper
-    height: 32px
+    height: $progress-wrapper-height
 
     display: flex
     justify-content: center
     align-items: center
 
-    gap: $itemGap-16
+    gap: $progress-wrapper-gap
 
     &__success
         .progress:after
-            background-color: $color-success
+            background: $progress-success-stroke-bg
 
         .progress_icon
-            color: $color-success
-    
+            color: $progress-success-icon
+
     &__error
         .progress:after
-            background-color: $color-error
-        
+            background: $progress-error-stroke-bg
+
         .progress_icon
-            color: $color-error
+            color: $progress-error-icon
 
 .progress
     --stroke-width: 5px
     --progress: 1%
 
-    border-radius: $borderRadius
-    background-color: $color-disabled
+    border-radius: $progress-border-radius
+    background: $progress-bg
     width: 100%
     height: var(--stroke-width)
     position: relative
     &:after
-        border-radius: $borderRadius
+        border-radius: $progress-border-radius
         content: ""
         display: block
         position: absolute
@@ -41,4 +41,4 @@
         left: 0
         width: var(--progress)
         height: var(--stroke-width)
-        background-color: $color-primary
+        background: $progress-stroke-bg

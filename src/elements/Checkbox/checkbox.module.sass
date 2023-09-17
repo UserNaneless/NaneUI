@@ -2,38 +2,38 @@
 
 .checkbox_wrapper
     display: flex
-    gap: $itemGap-8
+    gap: $checkbox-wrapper-gap
     align-items: center
 
 .checkbox
     user-select: none
-    width: 16px
-    height: 16px
-    background-color: $color-white
-    border: 1px solid $color-primary
+    width: $checkbox-width
+    height: $checkbox-height
+    background: $checkbox-bg
+    border: $checkbox-border
     position: relative
 
     display: flex
     align-items: center
     justify-content: center
 
-    border-radius: $borderRadius
+    border-radius: $checkbox-border-radius
 
-    transition: background .3s
+    transition: $checkbox-transition
 
     &:hover
         cursor: pointer
-        box-shadow: $active
+        box-shadow: $checkbox-hover-shadow
 
     &_checkmark
         display: none
-        font-size: .75rem
         justify-content: center
         align-items: center
+        font-size: $checkbox-icon-size
 
 .checkbox_active
-    background-color: $color-primary
-    color: white
+    background-color: $checkbox-active-bg
+    color: $checkbox-active-color
 
     .checkbox_checkmark
         display: flex

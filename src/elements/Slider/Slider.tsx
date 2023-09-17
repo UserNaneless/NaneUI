@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./slider.module.sass"
+import useFormRegister from "../Form/hooks/useFormRegister";
 
 
 type SliderProps = {
@@ -14,6 +15,7 @@ export default function Slider({width = 4, picker = true, pickerSize = 8} : Slid
     const [value, setValue] = useState(0);
     const [mouseDown, setMouseDown] = useState<boolean>(false);
     const ref = useRef<HTMLDivElement>(null);
+    const formRegister = useFormRegister();
 
     useEffect(() => {
         ref.current?.style.setProperty("--slider-width", width + "px");
@@ -21,6 +23,10 @@ export default function Slider({width = 4, picker = true, pickerSize = 8} : Slid
         ref.current?.style.setProperty("--slider-picker", pickerSize + "px")
         ref.current?.style.setProperty("--current-percent", 50 + "%")
     }, [])
+
+    useEffect(() => {
+        formRegister.setValue(value);
+    }, [value])
 
     return (
         <div className={styles.slider}>
@@ -38,7 +44,7 @@ export default function Slider({width = 4, picker = true, pickerSize = 8} : Slid
 
                         setValue(percent);
 
-                        slider.style.setProperty("--current-percent", value + "%")
+                        slider.style.setProperty("--current-percent", percent + "%")
                     }
                 }}
 

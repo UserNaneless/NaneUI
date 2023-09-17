@@ -3,36 +3,36 @@
 .button
     font-size: .9375rem
     min-height: 32px
-    padding-inline: $padding-8
-    border-radius: $borderRadius
-    background-color: $color-primary
-    border: 1px solid $color-primary
-    color: $color-white
+    padding: $button-padding
+    border-radius: $button-border-radius
+    background-color: $button-bg
+    border: $button-border
+    color: $button-color
 
-    transition: background .3s
+    transition: $button-transition
 
     &:hover
         cursor: pointer
-        background-color: $color-white
-        color: $color-primary
-        border: 1px solid $color-primary
+        background: $button-hover-bg
+        color: $button-hover-color
+        border: $button-hover-border
 
     &:active
-        background-color: $color-secondary
+        background: $button-active-bg
 
     &:disabled
-        background-color: $color-disabled
-        color: $color-secondary
-        border-color: $color-disabled
+        background: $button-disabled-bg
+        color: $button-disabled-color
+        border-color: $button-disabled-border-color
 
         &:hover
             cursor: auto
 
 .button__contrast
-        background-color: $color-white
-        color: $color-primary
-        border: 1px solid $color-primary
+    background: $button-contrast-bg
+    color: $button-contrast-color
+    border: $button-contrast-border
 
-        &:hover
-            background-color: $color-primary
-            color: $color-white
+    &:hover
+        background: $button-contrast-hover-bg
+        color: $button-contrast-hover-color
