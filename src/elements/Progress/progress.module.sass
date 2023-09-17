@@ -1,0 +1,44 @@
+@import "../../variables"
+
+.progress_wrapper
+    height: 32px
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    gap: $itemGap-16
+
+    &__success
+        .progress:after
+            background-color: $color-success
+
+        .progress_icon
+            color: $color-success
+    
+    &__error
+        .progress:after
+            background-color: $color-error
+        
+        .progress_icon
+            color: $color-error
+
+.progress
+    --stroke-width: 5px
+    --progress: 1%
+
+    border-radius: $borderRadius
+    background-color: $color-disabled
+    width: 100%
+    height: var(--stroke-width)
+    position: relative
+    &:after
+        border-radius: $borderRadius
+        content: ""
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        width: var(--progress)
+        height: var(--stroke-width)
+        background-color: $color-primary

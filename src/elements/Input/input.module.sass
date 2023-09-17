@@ -1,0 +1,40 @@
+@import "../../variables"
+
+.input
+    font-size: $fontSize-16
+    padding: $padding-8 $padding-16
+    border-radius: $borderRadius
+    border: 1px solid $color-secondary
+    height: 32px
+    &_button
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        padding-inline: $padding-16
+        color: $color-secondary
+        transition: all .3s
+        &:hover
+            cursor: pointer
+        &:active
+            background-color: $color-primary
+            color: $color-white
+    &:focus-visible
+        box-shadow: 0 0 0 1.5px $color-primary
+
+.input_wrapper
+    height: 32px
+    border: 1px solid $color-secondary
+    border-radius: $borderRadius
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    input
+        flex: 1
+        height: 100%
+        border: none
+        &:focus-visible
+            box-shadow: none
+    &:focus-within
+        box-shadow: 0 0 0 1px $color-primary

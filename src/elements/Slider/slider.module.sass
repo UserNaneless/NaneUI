@@ -1,0 +1,56 @@
+@import "../../variables"
+
+.slider
+
+    width: 100%
+    height: 32px
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    z-index: 0
+    &_main_bar
+        --slider-width: 2px
+        --current-percent: 0%
+        --show-picker: block
+        --slider-picker: 5px
+        position: relative
+        background-color: $color-disabled
+        height: var(--slider-width)
+        width: 100%
+        border-radius: $borderRadius
+
+        &:before
+            content: ""
+            display: block
+            width: var(--current-percent)
+            height: var(--slider-width)
+            background-color: $color-primary
+            position: absolute
+            border-radius: $borderRadius
+
+    &_slider_picker
+        top: calc(-1 * var(--slider-picker) + var(--slider-width) / 2)
+        left: calc(var(--current-percent) + -1 * var(--slider-picker) )
+        position: absolute
+        width: calc(var(--slider-picker) * 2)
+        aspect-ratio: 1
+        background-color: $color-primary
+        border-radius: 100%
+
+        display: flex
+        justify-content: center
+        align-items: center
+
+        &:hover
+            cursor: pointer
+            box-shadow: 0 0 1px 1px $color-primary
+
+        &:before
+            content: ""
+            position: absolute
+            display: block
+            width: calc(1.2 * var(--slider-picker))
+            aspect-ratio: 1
+            background-color: $color-white
+            border-radius: 50%

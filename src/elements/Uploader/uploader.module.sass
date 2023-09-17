@@ -1,0 +1,57 @@
+@import "../../variables"
+
+.uploader_filelist
+    margin-top: $margin-8
+    display: flex
+    flex-direction: column
+    gap: $itemGap-8
+
+.uploader_input_wrapper
+    &:hover
+        cursor: pointer
+
+.uploader_input_wrapper__fit
+    width: fit-content
+
+.uploader_item__default
+    padding: $padding-8
+    background-color: $color-white
+    border: 1px solid $color-primary
+    border-radius: $borderRadius
+    max-width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &__close
+        display: flex
+        justify-content: center
+        align-items: center
+        color: $color-secondary
+        &:hover
+            cursor: pointer
+
+    &__name
+        max-width: 80%
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
+.uploader_dropzone__default
+    width: 100%
+    padding: $padding-32
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: $itemGap-8
+    border: 1px solid $color-primary
+    border-radius: $borderRadius
+
+    &__title
+        color: $color-primary
+        font-weight: normal
+    
+    &__hint
+        color: $color-secondary
+    

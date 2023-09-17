@@ -1,0 +1,39 @@
+@import "../../variables"
+
+.checkbox_wrapper
+    display: flex
+    gap: $itemGap-8
+    align-items: center
+
+.checkbox
+    user-select: none
+    width: 16px
+    height: 16px
+    background-color: $color-white
+    border: 1px solid $color-primary
+    position: relative
+
+    display: flex
+    align-items: center
+    justify-content: center
+
+    border-radius: $borderRadius
+
+    transition: background .3s
+
+    &:hover
+        cursor: pointer
+        box-shadow: $active
+
+    &_checkmark
+        display: none
+        font-size: .75rem
+        justify-content: center
+        align-items: center
+
+.checkbox_active
+    background-color: $color-primary
+    color: white
+
+    .checkbox_checkmark
+        display: flex

@@ -1,0 +1,44 @@
+@import "../../variables"
+
+.radio
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    gap: $itemGap-8
+
+    &_button
+        width: 1rem
+        aspect-ratio: 1
+        background-color: $color-white
+        border: 1px solid $color-primary
+        border-radius: 50%
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        transition: background .3s
+
+        &:before
+            content: ""
+            display: flex
+            position: absolute
+            background-color: $color-white
+            border-radius: 50%
+            width: 8px
+            aspect-ratio: 1
+            transform: scale(0)
+            transition: transform .3s
+
+        &:hover
+            cursor: pointer
+            box-shadow: $active
+
+.radio_button__active
+    background-color: $color-primary
+    &:before
+        transform: scale(1)
+
+.radio_group
+    display: flex
+    gap: $itemGap-8
+    flex-direction: column

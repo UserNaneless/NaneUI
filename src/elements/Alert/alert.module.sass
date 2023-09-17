@@ -1,0 +1,47 @@
+@import "../../variables"
+
+.alert
+    width: 450px
+    bottom: 10px
+    position: fixed
+    left: 50%
+    transform: translateX(-50%)
+
+    border-radius: $borderRadius
+    padding: $padding-16
+    display: flex
+    justify-content: space-between
+    align-items: center
+    gap: $itemGap-16
+
+    background-color: $color-primary
+    color: $color-white
+
+    &__icon
+        font-size: 24px
+        user-select: none
+        span
+            display: flex
+            justify-content: center
+            align-items: center
+        &__info
+            color: $color-info
+
+        &__error
+            color: $color-error
+
+        &__success
+            color: $color-success
+
+    &__text
+        display: block
+        flex: 1
+        text-align: left
+
+    &__close
+        display: flex
+        justify-content: center
+        align-items: center
+        user-select: none
+        &:hover
+            cursor: pointer

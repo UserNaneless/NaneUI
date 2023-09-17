@@ -1,0 +1,41 @@
+@import "../../variables"
+
+.select_wrapper
+    position: relative
+    user-select: none
+
+.select
+    height: 32px
+    border-radius: $borderRadius
+    border: 1px solid $color-secondary
+    padding: $padding-8 $padding-16
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    &:hover
+        cursor: pointer
+
+    &_options
+        position: absolute
+        width: 100%
+        border-radius: $borderRadius
+        display: flex
+        flex-direction: column
+        background-color: $color-white
+        box-shadow: 5px 5px 10px .5px $color-shadow
+
+.option
+    display: flex
+    align-items: center
+    height: 32px
+    padding: $padding-8 $padding-16
+
+    &:hover
+        cursor: pointer
+        background-color: $color-primary
+        color: $color-white
+
+.options_wrapper
+    position: relative
+    z-index: 1

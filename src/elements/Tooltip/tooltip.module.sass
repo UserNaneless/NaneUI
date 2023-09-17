@@ -1,0 +1,43 @@
+@import "../../variables"
+
+.tooltip
+    background-color: $color-primary
+    color: $color-white
+    padding: $padding-16
+    width: fit-content
+    position: absolute
+    border-radius: $borderRadius
+
+    &:before
+        content: ""
+        background-color: transparent
+        position: absolute
+        top: -8px
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 8px 8px 8px
+        border-color: transparent transparent $color-primary transparent
+
+.tooltip_children
+    width: fit-content
+
+.tooltip_bottom:before
+    left: 50%
+    transform: translateX(-50%)
+
+.tooltip_left:before
+    top: 50%
+    right: -12px
+    transform: rotateZ(90deg) translateX(-25%)
+
+.tooltip_top:before
+    top: auto
+    bottom: -8px
+    left: 50%
+    transform: rotateZ(180deg) translateX(50%)
+
+.tooltip_right:before
+    top: 50%
+    left: -12px
+    transform: rotateZ(-90deg) translateX(25%)
