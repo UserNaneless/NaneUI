@@ -38,7 +38,7 @@ export default function Slider({width = 4, picker = true, pickerSize = 8} : Slid
 
                         setValue(percent);
 
-                        slider.style.setProperty("--current-percent", percent + "%")
+                        slider.style.setProperty("--current-percent", value + "%")
                     }
                 }}
 

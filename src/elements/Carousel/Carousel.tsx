@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-
-import styles from "./carousel.module.sass"
 import { AnimatePresence, motion } from 'framer-motion';
 import Children from "react-children-utilities";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+
+import styles from "./carousel.module.sass"
+
 
 type CarouselProps = {
     children?: React.ReactNode
@@ -69,7 +70,7 @@ export default function Carousel({ children }: CarouselProps) {
                     key: Math.random(),
                     custom: currentSlide.direction,
 
-                    variants: crossfade,
+                    variants: crossfade && slide,
 
                     initial: "enter",
 
@@ -89,7 +90,7 @@ export default function Carousel({ children }: CarouselProps) {
                         right: 0
                     },
 
-                    onDragEnd: (e, { velocity }) => {
+                    onDragEnd: (_, { velocity }) => {
                         if (velocity.x !== 0)
                             setCurrentSlide({
                                 direction: Math.sign(velocity.x),
@@ -119,7 +120,7 @@ export default function Carousel({ children }: CarouselProps) {
 
             <div className={styles.carousel_pages}>
                 {
-                    slides.map((item, i) => {
+                    slides.map((_, i) => {
                         return <span key={i} className={`${styles.carousel_page} ${i === currentSlide.currentSlide ? styles.carousel_page__active : ""}`}></span>
                     })
                 }
