@@ -1,0 +1,70 @@
+@import "../../variables"
+
+.date_picker_wrapper
+    position: relative
+
+.date_picker
+    position: absolute
+    background: $color-white
+    width: 240px
+    border-radius: $borderRadius
+    box-shadow: $shadow
+    top: -100%
+
+    &_controls
+        padding: $padding-16
+        display: flex
+        align-items: center
+        justify-content: space-between
+        border-bottom: 1px solid $color-shadow
+        user-select: none
+
+        &__button
+            display: flex
+            justify-content: center
+            align-items: center
+            color: $color-primary
+            user-select: none
+            &:hover
+                cursor: pointer
+
+        &__current_date
+            font-weight: 500
+
+    &_content
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+        padding: $padding-16
+        gap: 4px
+
+        &_item
+            width: calc(184px / 7)
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: $padding-4 $padding-2
+            border-radius: $borderRadius
+            border: 1px solid $color-white
+
+            &:hover
+                cursor: pointer
+
+            &__active:hover
+                cursor: pointer
+                background: $color-primary
+                color: $color-white
+
+            &__current
+                border: 1px solid $color-primary
+                &:hover
+                    cursor: pointer
+                    background: $color-primary
+                    color: $color-white
+
+            &__disabled
+                color: $color-shadow
+
+            &__month
+                width: calc(184px / 3)

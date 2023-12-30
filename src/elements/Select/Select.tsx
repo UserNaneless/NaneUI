@@ -4,6 +4,7 @@ import { FaChevronDown } from "react-icons/fa6"
 import { AnimatePresence, motion } from "framer-motion";
 import Children from "react-children-utilities"
 import useFormRegister from "../Form/hooks/useFormRegister";
+import { EventListeners } from "../../helpers/types/Types";
 
 type SelectContextType = {
     updateValue: (str?: string) => void
@@ -15,11 +16,11 @@ export const SelectContext = React.createContext<SelectContextType>({
 
 type SelectProps = {
     children: Array<React.ReactNode> | React.ReactNode
-}
+} & EventListeners
 
-export default function Select({ children }: SelectProps) {
+export default function Select({ children, onChange, onClick, onFocus }: SelectProps) {
 
-    const [value, setValue] = useState(Children.onlyText(Children.toArray(children)[0]) );
+    const [value, setValue] = useState(Children.onlyText(Children.toArray(children)[0]));
     const [show, setShow] = useState(false);
     const [focus, setFocus] = useState(false);
     const formRegister = useFormRegister();
@@ -29,6 +30,8 @@ export default function Select({ children }: SelectProps) {
     useEffect(() => {
         formRegister.setValue(value);
         setFocus(false);
+        if (onChange)
+            onChange(value);
     }, [value])
 
 
@@ -42,10 +45,16 @@ export default function Select({ children }: SelectProps) {
 
     return (
         <div ref={ref} className={styles.select_wrapper} tabIndex={-1}
-            onClick={() => {
+            onClick={(e) => {
                 setFocus(true);
+                if (onClick)
+                    onClick(e);
             }}
-            onFocus={() => setShow(true)}
+            onFocus={(e) => {
+                if (onFocus)
+                    onFocus(e);
+                setShow(true)
+            }}
             onBlur={() => setShow(false)}
         >
             <input type="text" defaultValue={value} hidden {...formRegister.registerChecked()} />

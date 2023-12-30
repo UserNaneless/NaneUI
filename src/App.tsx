@@ -1,4 +1,4 @@
-import { FaFile, FaXmark } from 'react-icons/fa6';
+import { FaBacteria, FaBlackTie, FaFile, FaXmark } from 'react-icons/fa6';
 import Alert from './elements/Alert/Alert';
 import Button from './elements/Button/Button';
 import InputButton from './elements/Input/InputButton'
@@ -13,8 +13,6 @@ import Offcanvas from './elements/Offcanvas/Offcanvas';
 import OffcanvasHeader from './elements/Offcanvas/OffcanvasHeader';
 import OffcanvasContent from './elements/Offcanvas/OffcanvasContent';
 import { useState } from "react";
-
-import './App.sass'
 import Accordion from './elements/Accordion/Accordion';
 import AccordionItem from './elements/Accordion/AccordionItem';
 import AccordionHeader from './elements/Accordion/AccordionHeader';
@@ -40,12 +38,19 @@ import RadioGroup from './elements/Radio/RadioGroup';
 import Checkbox from './elements/Checkbox/Checkbox';
 import Tooltip from './elements/Tooltip/Tooltip';
 import Uploader from './elements/Uploader/Uploader';
+import Video from './elements/Video/Video';
+import Audio from './elements/Audio/Audio';
+
+import './App.sass'
+import DatePicker from './elements/DatePicker/DatePicker';
+import Switch from './elements/Switch/Switch';
+
 
 function App() {
 
     const [show, setShow] = useState(false);
 
-    const [showcase, setShowcase] = useState(false);
+    const [showcase, setShowcase] = useState(true);
 
     return (
         <div style={{
@@ -76,19 +81,24 @@ function App() {
                         <Option>Option 3</Option>
                     </Select>
 
-                    <Slider />
+                    <Slider showValue valRange={[10, 100]} />
 
                     <Button>
-                        Отправить
+                        Send
                     </Button>
 
                     <Button contrast>
-                        Отправить
+                        Send
                     </Button>
 
                     <Button disabled>
-                        Отправить
+                        Send
                     </Button>
+
+                    <Switch values={[1, 2]} valuesPlaceholder={[
+                        <FaBlackTie />,
+                        <FaBacteria />
+                    ]} />
 
                     <Alert type="info" showcase />
 
@@ -98,21 +108,21 @@ function App() {
 
                     <Modal showcase>
                         <ModalRow title>
-                            <h3>React Modal title</h3>
+                            <h3>Modal title</h3>
                             <FaXmark />
                         </ModalRow>
 
                         <ModalRow content>
-                            React Modal body text goes here.
+                            Modal body text.
                         </ModalRow>
 
                         <ModalRow controls>
                             <Button contrast>
-                                Отмена
+                                Cancel
                             </Button>
 
                             <Button>
-                                Подтвердить
+                                Continue
                             </Button>
                         </ModalRow>
                     </Modal>
@@ -278,6 +288,12 @@ function App() {
 
                     <Uploader drag>
                     </Uploader>
+
+                    <Video />
+
+                    <Audio src={"./src/elements/Audio/camellia.mp3"} />
+
+                    <DatePicker type="Years" />
                 </>
             }
 
@@ -357,9 +373,18 @@ function App() {
                             <FormError />
                         </FormItem>
 
+                        <FormItem name="test5">
+                            <FormTitle>
+                                <h4>Switch:</h4>
+                            </FormTitle>
+                            <Switch values={[1, 2]} valuesPlaceholder={[
+                                <FaBlackTie />,
+                                <FaBacteria />
+                            ]} />
+                            <FormError />
+                        </FormItem>
 
-
-                        <Button>Отправить</Button>
+                        <Button>Send</Button>
                     </Form>
 
                 </>

@@ -1,0 +1,37 @@
+@import "../../variables"
+
+.switch
+    &_wrapper
+        width: 94px
+        height: 32px
+        background: $color-primary
+        border-radius: $borderRadius
+        position: relative
+
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    &_head
+        height: 100%
+        width: 55%
+        position: absolute
+        border-radius: $borderRadius
+        border: 3px solid $color-primary
+        background: $color-white
+        transition: all .3s
+        left: 0
+
+        &__right
+            left: 45%
+
+        &:hover
+            cursor: pointer
+
+    &_item
+        height: 100%
+        width: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        color: $color-white

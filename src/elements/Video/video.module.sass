@@ -1,0 +1,114 @@
+@import "../../variables"
+
+.video_wrapper
+    position: relative
+
+.video_wrapper:hover .video_controls
+    opacity: 1
+
+.video_video
+    width: 520px
+
+    &__fullscreen
+        width: 100%
+        height: 100%
+
+.video_controls
+    height: 32px
+    position: absolute
+    bottom: 4px
+    left: 0
+    right: 0
+    background: rgba(0, 0, 0, 0.5)
+    opacity: 1
+    transition: opacity .3s
+    display: flex
+    align-items: center
+
+    &__button
+        display: flex
+        justify-content: center
+        align-items: center
+        aspect-ratio: 1
+        height: 100%
+        font-size: $fontSize-20
+        color: $color-white
+        background: transparent
+        transition: all .3s
+        &:hover
+            cursor: pointer
+
+        &_hover
+            display: flex
+            justify-content: center
+            align-items: center
+            aspect-ratio: 1
+            height: 100%
+            font-size: $fontSize-20
+            color: $color-white
+            background: transparent
+            transition: all .3s
+            &:hover
+                cursor: pointer
+                background: $color-white
+                color: $color-primary
+
+    &__volume_button
+        font-size: $fontSize-12
+        position: relative
+
+    &__volume_wrapper
+        opacity: 0
+        transition: all .3s
+        background: $color-white
+        position: absolute
+        height: 16px
+        width: 48px
+        top: -16px
+        border-radius: $borderRadius
+        border: 1px solid $color-primary
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: $padding-4
+
+        &:after
+            content: ""
+            display: block
+            position: absolute
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 8px 8px 8px
+            border-color: transparent transparent $color-white transparent
+            bottom: -8px
+            left: 50%
+            transform: translateX(50%)
+            rotate: 180deg
+
+    &__expand_button
+        font-size: $fontSize-12
+
+    &__timings
+        color: $color-white
+        font-size: $fontSize-12
+        padding-left: $padding-8
+
+    &__settings_button
+        font-size: $fontSize-12
+        position: relative
+
+    &__settings_wrapper
+        opacity: 0
+        width: 72px
+        min-height: 48px
+        border-radius: $borderRadius
+        background: rgba(0, 0, 0, 0.65)
+        position: absolute
+        bottom: 100%
+
+.video_controls__volume_button:hover .video_controls__volume_wrapper
+    opacity: 1
+
+.video_controls__settings_button:hover .video_controls__settings_wrapper
+    opacity: 1

@@ -93,8 +93,8 @@ export default function Carousel({ children }: CarouselProps) {
                     onDragEnd: (_, { velocity }) => {
                         if (velocity.x !== 0)
                             setCurrentSlide({
-                                direction: Math.sign(velocity.x),
-                                currentSlide: wrap(currentSlide.currentSlide, slides.length, Math.sign(velocity.x))
+                                direction: -Math.sign(velocity.x),
+                                currentSlide: wrap(currentSlide.currentSlide, slides.length, -Math.sign(velocity.x))
                             })
                     }
                 }}>

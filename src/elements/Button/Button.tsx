@@ -1,11 +1,11 @@
+import { EventListeners } from "../../helpers/types/Types"
 import styles from "./button.module.sass"
 
 type ButtonProps = {
     children?: React.ReactNode,
     disabled?: boolean,
-    contrast?: boolean,
-    onClick?: () => void
-}
+    contrast?: boolean
+} & EventListeners
 
 export default function Button({children, disabled, contrast, onClick} : ButtonProps) {
     return (

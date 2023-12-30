@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { FormItemContext } from "../../Form/FormItem";
 import { useFormContext } from 'react-hook-form';
+import { Moment } from "moment";
 
 export default function useFormRegister() {
     const formItemContext = useContext(FormItemContext);
@@ -13,7 +14,7 @@ export default function useFormRegister() {
             return {}
     }
 
-    const setValue = (val: string | number | File | FileList | File[]) => {
+    const setValue = (val: string | number | File | FileList | File[] | Moment) => {
         formContext?.setValue(String(formItemContext.name), val)
     }
 
