@@ -34,7 +34,7 @@ const reducer = (_: number, action: Action) => {
             return action.value
     }
 }
-
+//@ts-ignore
 export default function Slider({ width = 4, picker = true, pickerSize = 8, step, val, valRange, showValue = false, barColor, bgColor, onChange }: SliderProps) {
 
     const [value, setValue] = useReducer(reducer, 0);

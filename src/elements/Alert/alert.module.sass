@@ -17,6 +17,8 @@
     background-color: $alert-bg
     color: $alert-color
 
+    width: 400px
+
     &__icon
         font-size: $alert-icon-size
         user-select: none
@@ -25,7 +27,7 @@
             justify-content: center
             align-items: center
         &__info
-            color:$alert-info-color
+            color: $alert-info-color
 
         &__error
             color: $alert-error-color
@@ -45,3 +47,7 @@
         user-select: none
         &:hover
             cursor: pointer
+
+@media screen and (max-width: 576px)
+    .alert
+        width: 276px

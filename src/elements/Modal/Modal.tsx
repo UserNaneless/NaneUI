@@ -15,7 +15,7 @@ export default function Modal({ children, showcase, width = 520 }: ModalProps) {
             transform: "none",
             left: "0",
             marginInline: "auto",
-            width
+            width: window.innerWidth > 520 ? width : 280
         }}>
             {children}
         </div>
