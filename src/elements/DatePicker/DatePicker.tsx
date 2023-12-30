@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FaAngleLeft, FaAngleRight, FaAnglesLeft, FaAnglesRight, FaRegCalendar } from "react-icons/fa6"
 import InputIcon from "../Input/InputIcon"
 import InputWrapper from "../Input/InputWrapper"
@@ -7,6 +7,7 @@ import moment, { Moment } from "moment"
 import styles from "./datepicker.module.sass"
 import DatePickerItem from "./DatePickerItem"
 import useFormRegister from "../Form/hooks/useFormRegister"
+import useClickOutside from './../../helpers/hooks/useClickOutside';
 
 const fillDays = (currentDate: Moment) => {
     const lstMonday = moment(currentDate).subtract(1, "month").endOf("month").startOf("week");
@@ -80,30 +81,39 @@ const smallNext = (type: "Days" | "Months" | "Years" | undefined) => {
 
 
 type DatePickerProps = {
-    type?: "Days" | "Months" | "Years"
+    type?: "Days" | "Months" | "Years",
+    format?: string
 }
 
-export default function DatePicker({ type }: DatePickerProps) {
+export default function DatePicker({ type, format }: DatePickerProps) {
 
     const [showPicker, setShowPicker] = useState(false);
     const [value, setValue] = useState(moment());
 
     const formRegiser = useFormRegister();
 
+    const wrapper = useRef<HTMLDivElement>(null);
+
+    useClickOutside(wrapper, () => {
+        setShowPicker(_ => false);
+    })
+
     useEffect(() => {
         formRegiser?.setValue(value);
     }, [value])
 
     return (
-        <div className={styles.date_picker_wrapper}>
+        <div className={styles.date_picker_wrapper} ref={wrapper}>
             <InputWrapper>
                 <Input placeholder="Выберите дату" onClick={() => {
-                    setShowPicker(!showPicker);
-                }} />
+                    setShowPicker(true);
+                }} value={value.format(String(format || (type === "Days" && "YYYY-MM-DD") || (type === "Years" && "YYYY")|| (type === "Months" && "YYYY-MM") ))}/>
                 <InputIcon icon={<FaRegCalendar />} />
             </InputWrapper>
 
-            <div className={styles.date_picker}>
+            <div className={styles.date_picker} style={{
+                visibility: showPicker ? "visible" : "hidden"
+            }}>
                 <div className={styles.date_picker_controls}>
                     <div className={styles.date_picker_controls__button} onClick={() => {
                         setValue(moment(value).subtract(1, bigNext(type)));

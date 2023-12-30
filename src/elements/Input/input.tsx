@@ -10,8 +10,9 @@ type InputProps = {
 export default function Input({ ...props }: InputProps) {
 
     const formRegister = useFormRegister();
-
     return (
-        <input {...props} {...formRegister.registerChecked()} className={styles.input} />
+        <input {...props} {...formRegister.registerChecked()} {...{
+            onChange: props.onChange ? props.onChange : () => {} 
+        }} className={styles.input} />
     )
 }

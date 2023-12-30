@@ -294,6 +294,8 @@ function App() {
                     <Audio src={"./src/elements/Audio/camellia.mp3"} />
 
                     <DatePicker type="Years" />
+                    <DatePicker type="Months" />
+                    <DatePicker type="Days" />
                 </>
             }
 
